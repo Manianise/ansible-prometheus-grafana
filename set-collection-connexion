@@ -1,0 +1,15 @@
+---
+
+- name: Setup Prometheus, Node Exporter, cAdvisor, and Grafana on remote server
+  hosts: 127.0.0.1 
+  gather_facts: no
+  vars_files:
+    - secrets/main.yml
+
+  tasks:
+    # Generate inventory.ini from template
+    - name: Create inventory.ini from template
+      template:
+        src: inventory.ini.j2
+        dest: ./inventory.ini
+

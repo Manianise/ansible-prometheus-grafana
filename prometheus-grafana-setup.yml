@@ -1,0 +1,37 @@
+---
+
+- name: Install Prometheus, Node Exporter, cAdvisor, and Grafana on remote server
+  hosts: servers
+  become: true
+  vars_files:
+    - secrets/main.yml 
+  tasks:
+    # Install Node Exporter
+    - name: Install Node Exporter
+      include_role:
+        name: prometheus.prometheus.node_exporter
+
+    # Install cAdvisor
+    - name: Install cAdvisor
+      include_role:
+        name: prometheus.prometheus.cadvisor
+
+    # Install Prometheus
+    - name: Install Prometheus
+      include_role:
+        name: prometheus.prometheus.prometheus
+
+    # Install Grafana
+    - name: Install Grafana
+      include_role:
+        name: grafana.grafana.grafana
+      vars:
+        grafana_server_port: 3000
+        grafana_install_dir: /usr/share/grafana
+        grafana_config:
+          server:
+            root_url: http://{{ ansible_fqdn }}:3000
+        grafana_security:
+            admin_user: "{{ grafana_user  }}"  # default admin username, can be changed if needed
+            admin_password: "{{ grafana_password }}"  # secure admin password
+
