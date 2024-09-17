@@ -15,7 +15,6 @@
 #### Linux
 
 - Replace [main.yml](secrets/main.yml) with your secret variables e.g Grafana credentials as <code>grafana_user</code> and <code>grafana_password </code>
-- Additionnaly add <code>remote_server_ip</code>, <code>remote_server_user</code> and <code>private_key_path</code> to connect to your remote machine
 - It is recommended to encrypt your [main.yml](secrets/main.yml), and if you do, just run the install script :
 ```
 install.sh
@@ -24,8 +23,7 @@ install.sh
 - Otherwise, just run the following commands :
 ```
 ansible-galaxy install -r requirements.yml &&
-ansible-playbook set-collection-connexion.yml &&
-ansible-playbook -i inventory.ini prometheus-grafana-setup.yml
+ansible-playbook -i inventory.ini playbook.yml
 ```
 
 #### Windows
