@@ -4,7 +4,7 @@
   hosts: servers
   become: true
   vars_files:
-    - secrets/main.yml 
+    - secrets/main.yml
   tasks:
     # Install Node Exporter
     - name: Install Node Exporter
