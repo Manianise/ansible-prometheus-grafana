@@ -1,6 +1,0 @@
----
-# defaults file for dynamic_motd
-
-remote_server_ip: "10.0.2.11"    # Replace with your actual remote server IP
-remote_server_user: "vagrant"   # Replace with your remote server's username
-private_key_path: "/home/vagrant/.ssh/id_rsa"   # Replace with the path to your SSH private key

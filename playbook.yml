@@ -4,7 +4,7 @@
   hosts: servers
   become: true
   vars_files:
-    - group_vars/main.yml
+    - group_vars/all/vault.yml
   tasks:
     # Install Node Exporter
     - name: Install Node Exporter
