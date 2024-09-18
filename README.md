@@ -10,12 +10,12 @@
 #### Requirements
 
 - Ansible installed on local machine
-- Grafana Account with credentials in [secrets/main.yml](secrets/main.yml)
+- Grafana Account with credentials in [group_vars/main.yml](group_vars/main.yml)
 
 #### Linux
 
-- Replace [main.yml](secrets/main.yml) with your secret variables e.g Grafana credentials as <code>grafana_user</code> and <code>grafana_password </code>
-- It is recommended to encrypt your [main.yml](secrets/main.yml), and if you do, just run the install script :
+- Replace [main.yml](group_vars/main.yml) with your secret variables e.g Grafana credentials as <code>grafana_user</code> and <code>grafana_password </code>
+- It is recommended to encrypt your [main.yml](group_vars/main.yml), and if you do, just run the install script :
 ```
 install.sh
 ```
