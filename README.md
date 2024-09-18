@@ -20,7 +20,7 @@
 
 - Run the following commands :
 ```
-ansible-playbook playbook.yml
+ansible-playbook -i inventory.ini playbook.yml
 ```
 
 #### Windows
