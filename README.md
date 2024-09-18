@@ -15,15 +15,12 @@
 #### Linux
 
 - Replace [vault.yml](group_vars/all/vault.yml) with your secret variables e.g Grafana credentials as <code>grafana_user</code> and <code>grafana_password </code>
-- It is recommended to encrypt your [vault.yml](group_vars/all/vault.yml), and if you do, just run the install script :
-```
-install.sh
-```
+- It is recommended to encrypt your [vault.yml](group_vars/all/vault.yml)
+- If you do not encrypt your vault.yml, add a semi-colon next to ask vault pass in [ansible.cfg](ansible.cfg)
 
-- Otherwise, just run the following commands :
+- Run the following commands :
 ```
-ansible-galaxy install -r requirements.yml &&
-ansible-playbook -i inventory.ini playbook.yml
+ansible-playbook playbook.yml
 ```
 
 #### Windows
