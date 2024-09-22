@@ -10,7 +10,11 @@
 
 #### Before we begin
 
-- This playbook is set to install Prometheus and Grafana on a local machine. To change that, change the host in the <strong>playbook.yml</strong> by "servers" and remove "connection: local"
+- This playbook is set to install Prometheus and Grafana on a local machine. If you wish to use the version v0.1, witch has an inventory, by running the following command :
+
+```
+git checkout tag/v0.1
+```
 
 #### Requirements
 
