@@ -7,6 +7,11 @@
  Works on Debian/Ubuntu, untested elsewhere
 |-----------------------------------------|
 ***
+
+#### Before we begin
+
+- This playbook is set to install Prometheus and Grafana on a local machine. To change that, change the host in the <strong>playbook.yml</strong> by "servers" and remove "connection: local"
+
 #### Requirements
 
 - Ansible installed on local machine
