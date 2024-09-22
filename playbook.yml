@@ -1,7 +1,8 @@
 ---
 
 - name: Install Prometheus, Node Exporter, cAdvisor, and Grafana on remote server
-  hosts: servers
+  hosts: localhost
+  connection: local
   become: true
   vars_files:
     - group_vars/all/vault.yml
@@ -30,7 +31,7 @@
         grafana_install_dir: /usr/share/grafana
         grafana_config:
           server:
-            root_url: http://{{ ansible_fqdn }}:3000
+            root_url: http://localhost:3000
         grafana_security:
             admin_user: "{{ grafana_user  }}"  # default admin username, can be changed if needed
             admin_password: "{{ grafana_password }}"  # secure admin password

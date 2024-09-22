@@ -2,4 +2,4 @@
 
 collections:
   - prometheus.prometheus
-  - grafana.grafana
+  - community.grafana
