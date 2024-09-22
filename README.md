@@ -1,4 +1,4 @@
-### All in one compilation to install Grafana, Prometheus, cAdvisor and Node Exporter on a Linux based machine
+### All in one compilation to install Grafana, Prometheus, Alertmanager, cAdvisor and Node Exporter on a Linux based machine
 
 ![ubuntu](https://img.shields.io/badge/ubuntu-v22.04.4-E95420?logo=ubuntu)
 ![grafana](https://img.shields.io/badge/grafana-latest-F46800?logo=grafana)

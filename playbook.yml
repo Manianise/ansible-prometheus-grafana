@@ -1,6 +1,6 @@
 ---
 
-- name: Install Prometheus, Node Exporter, cAdvisor, and Grafana on remote server
+- name: Install Prometheus, Node Exporter, cAdvisor, Alertmanager and Grafana on remote server
   hosts: servers
   become: true
   vars_files:
@@ -20,6 +20,11 @@
     - name: Install Prometheus
       include_role:
         name: prometheus.prometheus.prometheus
+    
+    # Install Alertmanager
+    - name: Install Alertmanager
+      include_role:
+        name: prometheus.prometheus.alertmanager
 
     # Install Grafana
     - name: Install Grafana
