@@ -10,10 +10,10 @@
 
 #### Before we begin
 
-- This playbook is set to install Prometheus and Grafana on a local machine. If you wish to use the version v0.1, witch has an inventory, by running the following command :
+- This playbook is set to install Prometheus and Grafana on a local machine. If you wish to use the version v0.0.1, witch has an inventory, by running the following command :
 
 ```
-git checkout tag/v0.1
+git checkout tag/v0.0.1
 ```
 
 #### Requirements

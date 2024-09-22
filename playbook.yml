@@ -1,28 +1,28 @@
 ---
 
-- name: Install Prometheus, Node Exporter, cAdvisor, and Grafana on remote server
+- name: Install Prometheus, Node Exporter, Alertmanager, cAdvisor, and Grafana on remote server
   hosts: localhost
   connection: local
   become: true
   vars_files:
     - group_vars/all/vault.yml
   tasks:
-    # Install Node Exporter
     - name: Install Node Exporter
       include_role:
         name: prometheus.prometheus.node_exporter
 
-    # Install cAdvisor
     - name: Install cAdvisor
       include_role:
         name: prometheus.prometheus.cadvisor
 
-    # Install Prometheus
     - name: Install Prometheus
       include_role:
         name: prometheus.prometheus.prometheus
+    
+    - name: Install Alertmanager
+      include_role:
+        name: prometheus.prometheus.alertmanager
 
-    # Install Grafana
     - name: Install Grafana
       include_role:
         name: grafana.grafana.grafana
@@ -33,6 +33,6 @@
           server:
             root_url: http://localhost:3000
         grafana_security:
-            admin_user: "{{ grafana_user  }}"  # default admin username, can be changed if needed
-            admin_password: "{{ grafana_password }}"  # secure admin password
+            admin_user: "{{ grafana_user }}"
+            admin_password: "{{ grafana_password }}"
 
