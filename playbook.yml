@@ -3,24 +3,12 @@
 - name: Install Prometheus, Node Exporter, Alertmanager, cAdvisor, and Grafana on remote server
   hosts: localhost
   connection: local
-  become: true
+  no_log: false
   vars_files:
     - group_vars/all/vault.yml
   vars:
-    alertmanager_smtp:
-      smtp_smarthost: 'sandbox.smtp.mailtrap.io:587'
-      smtp_from: 'alertmanager@example.com'
-      smtp_auth_username: "{{smtp_auth_username}}"
-      smtp_auth_password: "{{smtp_auth_password}}"
-      smtp_require_tls: true
-    alertmanager_route:
-      group_by: ['alertname']
-      receiver: 'email'
-    alertmanager_receivers:
-      - name: 'email'
-        email_configs:
-          - to: 'it-team@example.com'
-            send_resolved: true
+    alertmanager_config_file: "/home/vagrant/ansible-prometheus-grafana/alertmanager/alertmanager.yml.j2"
+    
   tasks:
     - name: Install Node Exporter
       include_role:
