@@ -20,8 +20,22 @@
         name: prometheus.prometheus.prometheus
     
     - name: Install Alertmanager
-      include_role:
-        name: prometheus.prometheus.alertmanager
+      ansible.builtin.package:
+        name: alertmanager
+        state: present
+
+    - name: Ensure Alertmanager is running
+      ansible.builtin.systemd:
+        name: alertmanager
+        enabled: true
+        state: started
+
+    - name: Copy Alertmanager configuration file
+      ansible.builtin.template:
+        src: alertmanager/alertmanager.yml.j2
+        dest: /etc/alertmanager/alertmanager.yml
+      notify:
+        - Restart Alertmanager
 
     - name: Install Grafana
       include_role:
@@ -35,4 +49,10 @@
         grafana_security:
             admin_user: "{{ grafana_user }}"
             admin_password: "{{ grafana_password }}"
+
+  handlers:
+    - name: Restart Alertmanager
+      ansible.builtin.systemd:
+        name: alertmanager
+        state: restarted
 
