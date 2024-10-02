@@ -28,9 +28,19 @@ git checkout tag/v0.0.1
 - If you do not encrypt your vault.yml, add a semi-colon next to ask vault pass in [ansible.cfg](ansible.cfg)
 
 - Run the following commands :
+
 ```
+ansible-galaxy install -r requirements.yml
 ansible-playbook -i inventory.ini playbook.yml
 ```
+
+#### With no vault
+
+```
+ansible-galaxy install -r requirements.yml
+ansible-playbook playbook.yml
+```
+
 
 #### Windows
 
