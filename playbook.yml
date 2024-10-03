@@ -7,6 +7,14 @@
   vars_files:
     - group_vars/all/vault.yml
   vars:
+    prometheus_alertmanager_config:
+     - static_configs:
+       - targets:
+         - localhost:9093
+    prometheus_targets:
+      node:
+      - targets:
+        - localhost:9100
     alertmanager_config_file: "/home/vagrant/ansible-prometheus-grafana/alertmanager/alertmanager.yml.j2"
     
   tasks:
